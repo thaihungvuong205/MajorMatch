@@ -60,96 +60,12 @@ The functional dependency satisfies BCNF.
 
 ---
 
-## 2. SKILL
-
-**Relation:**
-
-```text
-SKILL(skill_name)
-```
-
-There are no non-trivial functional dependencies because the relation contains only one attribute.
-
-**Conclusion:** `SKILL` is in BCNF.
-
----
-
-## 3. INTEREST
-
-**Relation:**
-
-```text
-INTEREST(interest_name)
-```
-
-There are no non-trivial functional dependencies because the relation contains only one attribute.
-
-**Conclusion:** `INTEREST` is in BCNF.
-
----
-
-## 4. STUDENT_SKILL
-
-**Relation:**
-
-```text
-STUDENT_SKILL(student_id, skill_name, skill_level)
-```
-
-The primary key is:
-
-```text
-(student_id, skill_name)
-```
-
-**Functional dependency:**
-
-```text
-(student_id, skill_name) → skill_level
-```
-
-### Closure
-
-```text
-(student_id, skill_name)+
-= {student_id, skill_name}
-```
-
-Using:
-
-```text
-(student_id, skill_name) → skill_level
-```
-
-we get:
-
-```text
-(student_id, skill_name)+
-= {student_id, skill_name, skill_level}
-```
-
-The closure contains every attribute in `STUDENT_SKILL`.
-
-Therefore:
-
-```text
-(student_id, skill_name)+ = STUDENT_SKILL
-```
-
-So `(student_id, skill_name)` is a **superkey**.
-
-The functional dependency satisfies BCNF.
-
-**Conclusion:** `STUDENT_SKILL` is in BCNF.
-
----
-
 ## 5. STUDENT_INTEREST
 
 **Relation:**
 
 ```text
-STUDENT_INTEREST(student_id, interest_name, interest_level)
+STUDENT_INTEREST(student_id, interest_name, has_interest)
 ```
 
 The primary key is:
@@ -161,14 +77,14 @@ The primary key is:
 **Functional dependency:**
 
 ```text
-(student_id, interest_name) → interest_level
+(student_id, interest_name) → has_interest
 ```
 
 ### Closure
 
 ```text
 (student_id, interest_name)+
-= {student_id, interest_name, interest_level}
+= {student_id, interest_name, has_interest}
 ```
 
 The closure contains every attribute in `STUDENT_INTEREST`.
