@@ -25,40 +25,22 @@ The system shall maintain a list of available skills and interests.
 
 ---
 
-## 3. Student Skill Requirements
+## 3. Student Interest Requirements
 
-A student can have multiple skills.
-
-A skill can belong to multiple students.
-
-Therefore, the relationship between students and skills is **many-to-many (M:N)**.
-
-The system shall store this relationship using `STUDENT_SKILL`.
-
-Each student-skill relationship may also store the student's **skill level**.
-
-### Relationship
-
-```text
-STUDENT N:N SKILL
-```
-
----
-
-## 4. Student Interest Requirements
-
-A student can have multiple interests.
+A student can have multiple interest.
 
 An interest can belong to multiple students.
 
-Therefore, the relationship between students and interests is **many-to-many (M:N)**.
+Therefore, the relationship between students and interest is **many-to-many (M:N)**.
 
-The system shall connect this relationship using `STUDENT_INTEREST`.
+The system shall store this relationship using `Student_Interest`.
+
+Each Student_Interest relationship may also store the student's **has_interest**.
 
 ### Relationship
 
 ```text
-STUDENT N:N INTEREST
+STUDENT N:N Interest
 ```
 
 ---
