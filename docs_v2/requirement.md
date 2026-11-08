@@ -45,7 +45,7 @@ STUDENT N:N Interest
 
 ---
 
-## 5. University Student Requirements
+## 4. University Student Requirements
 
 `UNIVERSITY_STUDENT` is a subtype of `STUDENT`.
 
@@ -80,7 +80,7 @@ UNIVERSITY_STUDENT(
 
 ---
 
-## 6. Major Requirements
+## 5. Major Requirements
 
 The system shall maintain a list of university majors.
 
@@ -98,7 +98,7 @@ DEGREE(
 
 ---
 
-## 7. Major Prerequisite Requirements
+## 6. Major Prerequisite Requirements
 
 A major may require multiple prerequisite subjects.
 
@@ -125,7 +125,7 @@ HAS_PREREQUISITE(
 
 ---
 
-## 8. Prerequisite Requirements
+## 7. Prerequisite Requirements
 
 The system shall maintain a list of prerequisite subjects.
 
@@ -141,7 +141,7 @@ PREREQUISITE(
 
 ---
 
-## 9. Database Integrity Requirements
+## 8. Database Integrity Requirements
 
 The database shall:
 
