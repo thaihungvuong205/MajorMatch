@@ -1,0 +1,379 @@
+How many students are pursuing a major in Mathematics? List those students.
+
+mysql> select student_id
+    -> from university_student
+    -> where major = 'Mathematics';
++------------+
+| student_id |
++------------+
+|          9 |
+|         13 |
+|         21 |
+|         23 |
+|         39 |
+|         40 |
+|         42 |
+|         43 |
+|         46 |
+|         52 |
+|         53 |
+|         56 |
+|         57 |
+|         78 |
+|         79 |
+|         82 |
+|         87 |
+|         89 |
+|         93 |
+|        104 |
+|        114 |
+|        115 |
+|        120 |
+|        134 |
+|        148 |
+|        149 |
+|        150 |
+|        158 |
+|        161 |
+|        163 |
+|        167 |
+|        175 |
+|        179 |
+|        183 |
+|        191 |
+|        202 |
+|        227 |
+|        229 |
+|        232 |
+|        237 |
+|        241 |
+|        249 |
+|        252 |
+|        254 |
+|        256 |
+|        265 |
+|        270 |
+|        271 |
+|        274 |
+|        279 |
+|        282 |
+|        294 |
+|        305 |
+|        306 |
+|        309 |
+|        310 |
+|        312 |
+|        315 |
+|        331 |
+|        334 |
+|        342 |
+|        346 |
+|        356 |
+|        361 |
+|        386 |
+|        391 |
+|        396 |
+|        399 |
+|        402 |
+|        405 |
+|        409 |
+|        411 |
+|        414 |
+|        418 |
+|        421 |
+|        424 |
+|        427 |
+|        429 |
+|        431 |
+|        432 |
+|        435 |
+|        436 |
+|        440 |
+|        441 |
+|        459 |
+|        462 |
+|        467 |
+|        473 |
+|        474 |
+|        494 |
+|        498 |
+|        499 |
+|        516 |
+|        529 |
+|        542 |
+|        552 |
+|        553 |
+|        556 |
+|        566 |
+|        570 |
+|        572 |
+|        573 |
+|        574 |
+|        589 |
+|        591 |
+|        595 |
+|        602 |
+|        614 |
+|        622 |
+|        623 |
+|        624 |
+|        631 |
+|        640 |
+|        641 |
+|        643 |
+|        647 |
+|        663 |
+|        667 |
+|        676 |
+|        677 |
+|        682 |
+|        686 |
+|        688 |
+|        692 |
+|        697 |
+|        703 |
+|        713 |
+|        732 |
+|        739 |
+|        748 |
+|        754 |
+|        757 |
+|        766 |
+|        780 |
+|        782 |
+|        795 |
+|        805 |
+|        809 |
+|        811 |
+|        812 |
+|        825 |
+|        826 |
+|        831 |
+|        838 |
+|        844 |
+|        854 |
+|        861 |
+|        870 |
+|        871 |
+|        878 |
+|        880 |
+|        887 |
+|        888 |
+|        894 |
+|        895 |
+|        896 |
+|        904 |
+|        905 |
+|        908 |
+|        909 |
+|        917 |
+|        935 |
+|        937 |
+|        942 |
+|        946 |
+|        948 |
+|        958 |
+|        963 |
+|        964 |
+|        968 |
+|        979 |
+|        983 |
+|        986 |
+|        987 |
+|        989 |
+|        991 |
+|        992 |
+|        994 |
+|        996 |
++------------+
+179 rows in set (0.00 sec)
+
+
+
+
+
+Of the students pursuing a major in Mathematics, how many list "music club" as an interest? List those students.
+
+mysql> select student_id
+    -> from university_student
+    ->    natural join student_interest
+    -> where major = 'Mathematics'
+    ->    and interest_name = 'Music Club';
++------------+
+| student_id |
++------------+
+|          9 |
+|         13 |
+|         40 |
+|         42 |
+|         52 |
+|         56 |
+|         57 |
+|         78 |
+|         79 |
+|         82 |
+|         89 |
+|         93 |
+|        114 |
+|        120 |
+|        134 |
+|        148 |
+|        149 |
+|        179 |
+|        183 |
+|        229 |
+|        241 |
+|        249 |
+|        252 |
+|        254 |
+|        256 |
+|        271 |
+|        282 |
+|        294 |
+|        305 |
+|        306 |
+|        309 |
+|        310 |
+|        312 |
+|        331 |
+|        346 |
+|        391 |
+|        396 |
+|        402 |
+|        405 |
+|        409 |
+|        414 |
+|        418 |
+|        421 |
+|        424 |
+|        429 |
+|        432 |
+|        435 |
+|        436 |
+|        459 |
+|        467 |
+|        473 |
+|        494 |
+|        498 |
+|        516 |
+|        553 |
+|        556 |
+|        566 |
+|        570 |
+|        574 |
+|        589 |
+|        595 |
+|        602 |
+|        614 |
+|        623 |
+|        624 |
+|        631 |
+|        643 |
+|        663 |
+|        676 |
+|        682 |
+|        686 |
+|        688 |
+|        692 |
+|        697 |
+|        732 |
+|        748 |
+|        757 |
+|        780 |
+|        782 |
+|        795 |
+|        805 |
+|        809 |
+|        812 |
+|        826 |
+|        831 |
+|        838 |
+|        854 |
+|        871 |
+|        878 |
+|        880 |
+|        888 |
+|        894 |
+|        895 |
+|        896 |
+|        904 |
+|        908 |
+|        909 |
+|        917 |
+|        935 |
+|        937 |
+|        946 |
+|        948 |
+|        964 |
+|        979 |
+|        983 |
+|        987 |
+|        989 |
+|        991 |
+|        992 |
+|        994 |
+|        996 |
++------------+
+111 rows in set (0.08 sec)
+
+
+
+
+
+
+For students who have an interest of "Music Club", count the number of students in each major option.
+
+mysql> select major, count(student_id) as music_club
+    -> from university_student natural join student_interest
+    -> where interest_name = 'Music Club'
+    -> group by major;
++------------------+------------+
+| major            | music_club |
++------------------+------------+
+| Psychology       |         97 |
+| Physics          |         87 |
+| Biology          |         96 |
+| Computer Science |        107 |
+| Mathematics      |        111 |
+| History          |        101 |
++------------------+------------+
+6 rows in set (0.10 sec)
+
+
+
+
+
+Suppose a student has an interest in Data Analysis, the Music Club, and speaks French. Count the number of students in each major that also match those three interests.
+
+mysql> select major, count(student_id)
+    -> from university_student
+    -> where student_id in
+    -> (
+    ->     select student_id
+    ->     from student_interest
+    ->     where interest_name = 'Data Analysis'
+    -> )
+    -> and student_id in
+    -> (
+    ->     select student_id
+    ->     from student_interest
+    ->     where interest_name = 'Music Club'
+    -> )
+    -> and student_id in
+    -> (
+    ->     select student_id
+    ->     from student_interest
+    ->     where interest_name = 'French'
+    -> )
+    -> group by major;
++------------------+-------------------+
+| major            | count(student_id) |
++------------------+-------------------+
+| Physics          |                31 |
+| Biology          |                37 |
+| History          |                23 |
+| Computer Science |                32 |
+| Psychology       |                22 |
+| Mathematics      |                35 |
++------------------+-------------------+
+6 rows in set (0.02 sec)

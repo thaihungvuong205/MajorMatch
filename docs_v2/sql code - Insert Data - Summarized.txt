@@ -1,0 +1,344 @@
+mysql> describe student_interest;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| student_id     | int         | NO   | PRI | NULL    |       |
+| interest_name  | varchar(40) | NO   | PRI | NULL    |       |
+| interest_level | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> alter table student_interest drop interest_level;
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe student_interest;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| student_id    | int         | NO   | PRI | NULL    |       |
+| interest_name | varchar(40) | NO   | PRI | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table student_interest add has_interest boolean;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe student_interest;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| student_id    | int         | NO   | PRI | NULL    |       |
+| interest_name | varchar(40) | NO   | PRI | NULL    |       |
+| has_interest  | tinyint(1)  | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+
+
+
+
+
+mysql> select * from degree;
+Empty set (0.01 sec)
+
+mysql> describe degree;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| major | varchar(40) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into degree values
+    -> ('Biology'),
+    -> ('CSc'),
+    -> ('History'),
+    -> ('Mathematics'),
+    -> ('Physics'),
+    -> ('Psychology')
+    -> ;
+Query OK, 6 rows affected (0.01 sec)
+Records: 6  Duplicates: 0  Warnings: 0
+
+mysql> describe degree;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| major | varchar(40) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from degree;
++-------------+
+| major       |
++-------------+
+| Biology     |
+| CSc         |
+| History     |
+| Mathematics |
+| Physics     |
+| Psychology  |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> update degree
+    -> set major = 'Computer Science'
+    -> where major = 'CSc'
+    -> ;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from degree;
++------------------+
+| major            |
++------------------+
+| Biology          |
+| Computer Science |
+| History          |
+| Mathematics      |
+| Physics          |
+| Psychology       |
++------------------+
+6 rows in set (0.01 sec)
+
+
+
+
+
+mysql> alter table interests rename to interest;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> insert into interest values
+    -> ('Artistic'),
+    -> ('Data Analysis'),
+    -> ('Leadership'),
+    -> ('Problem Solving'),
+    -> ('Programming'),
+    -> ('Public Speaking'),
+    -> ('Art Club'),
+    -> ('Coding Club'),
+    -> ('Debate Club'),
+    -> ('Music Club'),
+    -> ('Sports Team'),
+    -> ('Volunteer Group'),
+    -> ('Chinese'),
+    -> ('English'),
+    -> ('French'),
+    -> ('German'),
+    -> ('Japanese'),
+    -> ('Spanish')
+    -> ;
+Query OK, 18 rows affected (0.02 sec)
+Records: 18  Duplicates: 0  Warnings: 0
+
+mysql> select * from interest;
++-----------------+
+| interest_name   |
++-----------------+
+| Art Club        |
+| Artistic        |
+| Chinese         |
+| Coding Club     |
+| Data Analysis   |
+| Debate Club     |
+| English         |
+| French          |
+| German          |
+| Japanese        |
+| Leadership      |
+| Music Club      |
+| Problem Solving |
+| Programming     |
+| Public Speaking |
+| Spanish         |
+| Sports Team     |
+| Volunteer Group |
++-----------------+
+18 rows in set (0.01 sec)
+
+
+
+
+
+
+
+mysql> describe student;
++-------------------------+-------------+------+-----+---------+-------+
+| Field                   | Type        | Null | Key | Default | Extra |
++-------------------------+-------------+------+-----+---------+-------+
+| student_id              | int         | NO   | PRI | NULL    |       |
+| student_name            | varchar(40) | YES  |     | NULL    |       |
+| student_email           | varchar(40) | YES  |     | NULL    |       |
+| student_education_level | varchar(40) | YES  |     | NULL    |       |
++-------------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> alter table student drop student_name;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table student drop student_email;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table student drop student_education_level;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe student;
++------------+------+------+-----+---------+-------+
+| Field      | Type | Null | Key | Default | Extra |
++------------+------+------+-----+---------+-------+
+| student_id | int  | NO   | PRI | NULL    |       |
++------------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+
+
+
+
+
+
+mysql> insert into student values
+    -> (1),
+    -> (2),
+    -> (3),
+    -> (4),
+    -> (5),
+...
+    -> (996),
+    -> (997),
+    -> (998),
+    -> (999),
+    -> (1000)
+    -> ;
+Query OK, 1000 rows affected (0.02 sec)
+Records: 1000  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++------------+
+| student_id |
++------------+
+|          1 |
+|          2 |
+|          3 |
+|          4 |
+|          5 |
+...
+|        996 |
+|        997 |
+|        998 |
+|        999 |
+|       1000 |
++------------+
+1000 rows in set (0.00 sec)
+
+
+
+
+
+
+mysql> insert into university_student values
+    -> (1, 'Psychology'),
+    -> (2, 'Physics'),
+    -> (3, 'Biology'),
+    -> (4, 'Biology'),
+    -> (5, 'Computer Science'),
+...
+    -> (996, 'Mathematics'),
+    -> (997, 'Biology'),
+    -> (998, 'Biology'),
+    -> (999, 'Psychology'),
+    -> (1000, 'Physics')
+    -> ;
+Query OK, 1000 rows affected (0.17 sec)
+Records: 1000  Duplicates: 0  Warnings: 0
+
+mysql> select * from university_student;
++------------+------------------+
+| student_id | major            |
++------------+------------------+
+|          3 | Biology          |
+|          4 | Biology          |
+|         12 | Biology          |
+|         14 | Biology          |
+|         19 | Biology          |
+...
+|        981 | Psychology       |
+|        984 | Psychology       |
+|        985 | Psychology       |
+|        990 | Psychology       |
+|        999 | Psychology       |
++------------+------------------+
+1000 rows in set (0.01 sec)
+
+
+
+
+
+
+
+mysql> describe student_interest;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| student_id    | int         | NO   | PRI | NULL    |       |
+| interest_name | varchar(40) | NO   | PRI | NULL    |       |
+| has_interest  | tinyint(1)  | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> alter table student_interest drop has_interest;
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> describe student_interest;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| student_id    | int         | NO   | PRI | NULL    |       |
+| interest_name | varchar(40) | NO   | PRI | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+insert into student_interest values
+(1,'Art Club'),
+(1,'Chinese'),
+(1,'Coding Club'),
+(1,'Debate Club'),
+(1,'French'),
+...
+(999,'Leadership'),
+(999,'Music Club'),
+(999,'Problem Solving'),
+(999,'Public Speaking'),
+(999,'Sports Team')
+;
+
+(Response was lost due to too many lines in command prompt from next prompt given, but it said query was ok.)
+
+select * from student_interest;
+
+(again, most of the response was lost. I'll put the last 10 entries)
+
+|        985 | Volunteer Group |
+|        986 | Volunteer Group |
+|        988 | Volunteer Group |
+|        989 | Volunteer Group |
+|        991 | Volunteer Group |
+|        992 | Volunteer Group |
+|        994 | Volunteer Group |
+|        996 | Volunteer Group |
+|        997 | Volunteer Group |
+|        998 | Volunteer Group |
++------------+-----------------+
+10529 rows in set (0.05 sec)
